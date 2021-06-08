@@ -1,0 +1,44 @@
+<!-- ikeliam head -->
+<%- include('../partials/head.ejs') %>
+
+<!-- //ikeliam bendra navigacijos faila dinamiskai -->
+<%- include('../partials/nav.ejs')%>
+
+<main role="main">
+  <h1 class="display-3">This is the owners page</h1>
+  <%- include('_msg') %> <%- include('search') %>
+  <a href="/owners/new" class="btn btn-success btn-primary">Add new owner</a>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row owners-container">
+        <% if (result.length > 0) { %> <% result.forEach(({_id,name,email,updatedAt}) => {%>
+        <!-- one card -->
+        <div id="one-post" class="col-md-4" data-post-id="<%=_id %>">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title name-search"><%- name%></h5>
+              <h6 class="text-muted"><%- email%></h6>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="/owners/single/<%=_id%>" class="btn btn-sm btn-outline-secondary">View</a>
+                </div>
+                <small class="text-muted"><%- updatedAt.toLocaleString()%></small>
+              </div>
+              <form action="/owners/delete/<%= _id %>" method="POST">
+                <button class="btn btn-danger" type="submit">Delete me</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- card end -->
+        <%})%> <%} else { %>
+        <div class="alert alert-info">
+          Owner with name <strong><%= search %> </strong>does not exist! Please try again
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%-include('../partials/footer.ejs')%>

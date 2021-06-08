@@ -1,0 +1,29 @@
+<!-- ikeliam head -->
+<%- include('../partials/head.ejs') %>
+<!-- //ikeliam bendra navigacijos faila dinamiskai -->
+<%- include('../partials/nav.ejs')%>
+<h1>Single blog page</h1>
+<section id = "one-post" class="jumbotron text-center" data-post-id= "<%=blogId %>">
+  <div class="container">
+    <h2><%-result.title%></h2>
+    <p class="lead text-muted"><%- result.author%></p>
+    <p>
+      <p> <%- result.body%></p>
+      <p> <%- result.createdAt.toLocaleString()%></p>
+      <a href = "/blog/single/edit/<%-result._id%>" id="editBtn" class="btn btn-primary my-2">Edit</a>
+      <a id="deleteBtn" class="btn btn-danger my-2">delete</a>
+      <a id="deleteBtn" href='/comment/new/<%=blogId%>' class="btn btn-success my-2">Add comment</a>
+    </p>
+  </div>
+</section>
+<% if(comments.length > 0) {%>
+  <h5 class="my-3">Comments:</h5>
+  <% comments.forEach(({name, comment })=> { %>
+  <ul class="list-group my-3">
+    <li class="list-group-item"><%= `Name: ${name}` %></li>
+    <li class="list-group-item"><%= `Comment: ${comment}` %></li>
+   
+  </ul>
+  <% }) %> <%}%> <%-include('../partials/footer.ejs')%>
+
+<%-include('../partials/footer.ejs')%>

@@ -1,0 +1,22 @@
+<!-- ikeliam head -->
+<%- include('../partials/head.ejs') %>
+
+<!-- //ikeliam bendra navigacijos faila dinamiskai -->
+<%- include('../partials/nav.ejs')%>
+
+<section id="one-post" class="jumbotron text-center" data-post-id="<%= blogId %>">
+  <div class="container">
+    <form action="/owners/edit/<%= blogId %>" method="POST" data-post-id="<%=result._id%>">
+      <h2><input name="name" value="<%-result.name%>" /></h2>
+      <p class="lead text-muted"><input name="email" value="<%- result.email%>" /></p>
+
+      <p><%- result.updatedAt.toLocaleString()%></p>
+
+      <a href="/owners/single/<%= blogId %>" class="btn btn-primary my-2">Go back</a>
+
+      <button class="btn btn-success" type="submit">Save</button>
+    </form>
+  </div>
+</section>
+
+<%-include('../partials/footer.ejs')%>

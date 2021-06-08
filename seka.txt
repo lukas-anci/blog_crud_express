@@ -1,0 +1,99 @@
+npm init , 
+npm install express eslint;
+.gitignore;
+ctrl+shift+p crete eslint configuration , jei neveikia, terminale bashe rasome ./node_modules/.bin/eslint --init ;
+atsidarus .eslintrc failui , ji issaugom , kad nusiimtu dvigubos kabutes ;
+
+pasirasom pradines expresso komandas: 
+
+const express = require('express')
+const app = express()
+ 
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
+ 
+app.listen(3000);
+
+
+pries app.listen(3000) pasidarom:
+//404 case , kai vartotojas ivede psl kurio nera
+app.use((req, res) => res.status(404).send('Ops , page not found'));
+
+pasirasom path constanta, ir nurodom kelia iki index.html , nauja index.js struktura atrodo taip:
+
+const express = require('express');
+const app = express();
+const path = require('path');
+
+const PORT = 3000;
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'pages', 'index.html'));
+});
+
+//404 case , kai vartotojas ivede psl kurio nera
+app.use((req, res) => res.status(404).send('Ops , page not found'));
+
+app.listen(PORT);
+
+
+susikuriam puslapius about , blog, itraukiam bootstrapa, atsikopijuojam templates ir t.t. ; 
+
+susiinstaliuojam ejs 
+npm install ejs
+
+//index.js faile nurodom(registruojam):
+
+//register view engine
+app.set('view engine', 'ejs');
+//render views home dir
+app.set('views', 'src/views');
+
+reikia pakeisti folderiu struktura:
+pages dir pervadinam i 'views' , o visu html failu galunes pakeiciam i 'ejs';
+
+Tada galime perdaryti ir index.js faila :
+
+app.get('/', function (req, res) {
+  // res.sendFile(path.join(__dirname, 'pages', 'index.html'));
+  res.render('index'); 
+});
+
+vietoj ilgesnio path nurodymo parasyti galime res.render('index');
+
+render automatiskai ima failus ir iesko is views folderio
+
+galima darytis server side rendering, paduoti pvz pavadinima is backendo ir paduoti ji i html:
+
+index.js faile: 
+
+//about page
+app.get('/about', function (req, res) {
+  // res.sendFile(path.join(__dirname, 'pages', 'about.html'));
+  res.render('about', {
+    title: 'About Us',
+  });
+});
+
+
+tada html irasome: 
+<title>Express blog <%= '| '+ title %></title>
+
+
+<!-- //ikeliam bendra navigacijos faila dinamiskai -->
+//body dalyje index.ejs faile
+    <%- include('./partials/nav.ejs')%>
+
+    o partials direktorijoje esanciam nav.ejs faile ikeliam bendra html , naudojama visiems puslapiams( index, about, blogs);
+
+    Su patikrinimu dinamiskai paduoti:
+
+     <title>Express blog <% if(title) { %> <%= '| ' + title %> <% } %></title>
+
+
+     <% %> - server side rendering (ejs braizas , kurio viduje rasome javascripta , ir visa js ivykdo backende) 
+
+     <%=  - atspausdina , nuima spec charakterius
+     <%-  - include() , %>   -
+     <%  nieko nespausdina tiesiog vykdo javascripta nurodyta %>

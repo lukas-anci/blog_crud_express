@@ -1,0 +1,12 @@
+<!-- galima uzsideti success pop up po sukurimo -->
+<% if (locals.feedback && feedback.msg === 'created') { %> <%- include('_alert', {className: 'success', action:
+'Created.'}) %> <% } %> <% if (locals.feedback && feedback.msg === 'deleted') { %> <%- include('_alert', {className:
+'danger', action: 'Deleted.'}) %> <% } %> <% if (locals.feedback && feedback.msg === 'edited') { %> <%-
+include('_alert', {className: 'warning', action: 'updated.'}) %> <% } %>
+<!-- locals.feedback isvengia klaidos , nes tik su feedback.msg mestu klaida undefined -->
+<!-- <%# if (locals.feedback && feedback.msg === 'deleted') { %>
+<div class="alert alert-danger" role="alert">Owner <strong><%#=feedback.name%></strong> was Deleted.</div>
+<%#} %> 
+<%#if (locals.feedback && feedback.msg === 'updated') { %>
+<div class="alert alert-warning" role="alert">Owner <strong><%#=feedback.name%></strong> was updated.</div>
+<%# } %> -->

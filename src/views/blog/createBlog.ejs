@@ -1,0 +1,23 @@
+<!-- ikeliam head -->
+<%- include('../partials/head.ejs') %>
+<!-- //ikeliam bendra navigacijos faila dinamiskai -->
+<%- include('../partials/nav.ejs')%>
+<h1>Add new Blog Post</h1>
+<form action="/api/blog" method="POST" id="form">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" required />
+  </div>
+  <div class="form-group">
+    <label for="author">Author</label>
+    <input required type="text" class="form-control" id="author" name="author" />
+  </div>
+  <div class="form-group">
+    <label for="body">Body</label>
+    <textarea required type="text" class="form-control" id="body" name="body"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add post</button>
+</form>
+
+<%-include('../partials/footer.ejs')%>

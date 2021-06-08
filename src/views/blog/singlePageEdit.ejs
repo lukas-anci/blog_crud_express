@@ -1,0 +1,20 @@
+<!-- ikeliam head -->
+<%- include('../partials/head.ejs') %>
+<!-- //ikeliam bendra navigacijos faila dinamiskai -->
+<%- include('../partials/nav.ejs')%>
+<h1>Single blog page</h1>
+<section id="one-post" class="jumbotron text-center" data-post-id="<%=blogId %>">
+  <div class="container">
+    <form id="edit-form" data-post-id="<%=result._id%>">
+      <h2><input required type="text" name="title" value="<%-result.title %>" /></h2>
+      <p class="lead text-muted"><input required type="text" name="author" value="<%-result.author %>" /></p>
+
+      <p><textarea required type="text" name="body" class="form-control"><%-result.body %></textarea></p>
+      <p><%- result.createdAt.toLocaleString()%></p>
+      <button type="submit" id="saveBtn" class="btn btn-primary my-2">Save</button>
+      <a href="/blog" class="btn btn-success my-2">Go back</a>
+    </form>
+  </div>
+</section>
+
+<%-include('../partials/footer.ejs')%>

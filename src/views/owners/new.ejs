@@ -1,0 +1,23 @@
+<!-- ikeliam head -->
+<%- include('../partials/head.ejs') %>
+
+<!-- //ikeliam bendra navigacijos faila dinamiskai -->
+<%- include('../partials/nav.ejs')%>
+
+<main role="main">
+  <h1 class="display-3">Add new owner</h1>
+
+  <form action="/owners/new" method="POST" id="formO">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" required />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input required type="email" class="form-control" id="email" name="email" />
+    </div>
+    <button type="submit" class="btn btn-primary" id="add-owner">Add owner</button>
+  </form>
+</main>
+
+<%-include('../partials/footer.ejs')%>

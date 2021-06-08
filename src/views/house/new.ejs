@@ -1,0 +1,23 @@
+<!-- ikeliam head -->
+<%- include('../partials/head.ejs') %>
+<!-- //ikeliam bendra navigacijos faila dinamiskai -->
+<%- include('../partials/nav.ejs')%>
+<h1>Add new house</h1>
+
+<form action="/house/new/<%=ownersId%>" method="POST" id="houseForm">
+  <div class="form-group">
+    <label for="houseNo">House Number</label>
+    <input required type="number" class="form-control" id="houseNo" name="houseNo" />
+  </div>
+  <div class="form-group">
+    <label for="street">Street</label>
+    <input type="text" class="form-control" id="street" name="street" required />
+  </div>
+  <div class="form-group">
+    <label for="town">Town</label>
+    <input required type="text" class="form-control" id="town" name="town" />
+  </div>
+  <button type="submit" class="btn btn-primary" id="add-owner">Add house</button>
+</form>
+
+<%-include('../partials/footer.ejs')%>

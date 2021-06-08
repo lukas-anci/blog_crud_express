@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+  <a class="navbar-brand" href="/">Express blog</a
+  ><button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  ></button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-link <%= page === 'home' ? 'active' : '' %>" href="/">Home </a>
+      <a class="nav-link <%= page === 'about' ? 'active' : '' %>" href="/about">About</a>
+      <a class="nav-link <%= page === 'blog'? 'active' : '' %>" href="/blog">Blog</a>
+      <a class="nav-link <%= page === 'owners'? 'active' : '' %>" href="/owners">Owners</a>
+      <a class="nav-link <%= page === 'owners_new'? 'active' : '' %>" href="/owners/new">Add new Owner</a>
+
+      <a class="nav-link <%= page === 'contact'? 'active' : '' %>" href="/contact">Contact</a>
+      <a class="nav-link <%= page === 'createB'? 'active' : '' %>" href="/blog/create">Add post</a>
+    </div>
+  </div>
+</nav>

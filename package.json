@@ -1,0 +1,25 @@
+{
+  "name": "blog-crud-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andriusdulevicius/blog-crud-express-ejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andriusdulevicius/blog-crud-express-ejs/issues"
+  },
+  "homepage": "https://github.com/andriusdulevicius/blog-crud-express-ejs#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "eslint": "^7.27.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.12"
+  }
+}

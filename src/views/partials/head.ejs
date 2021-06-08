@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Express blog <% if(title) { %> <%= '| ' + title %> <% } %></title>
+    <!-- isikeliam bootsrtrap linka -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <% if (page === 'createB') {%>
+    <script src="/js/create.js" type="module"></script>
+    <%}%> <% if (page === 'single' ) {%>
+    <script src="/js/delete.js" type="module"></script>
+    <%}%> <% if ( page=== 'edit' ) {%>
+    <script src="/js/edit.js" type="module"></script>
+    <%}%> <% if ( page=== 'owners' ) {%>
+    <script src="/js/search.js" type="module"></script>
+    <%}%>
+  </head>
+  <body class="container">
